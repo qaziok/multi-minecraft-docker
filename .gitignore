@@ -1,0 +1,16 @@
+/**
+
+!.gitignore
+!README.md
+
+!/docker/
+!/docker/*
+
+!/config/
+!/config/*
+
+!/examples/
+!/examples/*
+
+
+

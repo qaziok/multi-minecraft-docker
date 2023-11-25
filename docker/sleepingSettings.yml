@@ -1,0 +1,12 @@
+serverName: Serwer zaprasza, wbijaj i go odpal...
+serverPort: 25565
+bedrockPort: 0
+loginMessage: ...Serwer juz sie odpala, wroc za jakas minutke...
+serverOnlineMode: false
+webStopOnStart: false
+startMinecraft: true
+minecraftWorkingDirectory: ./data
+minecraftCommand: /start
+preventStop: true
+hideOnConnectionLogs: true
+webPort: 0
