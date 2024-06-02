@@ -23,4 +23,4 @@ ENV DISABLE_FILE_LOGS true
 ENV USE_AIKAR_FLAGS true
 
 ENTRYPOINT [ "/entrypoint.sh" ]
-HEALTHCHECK --start-period=1m --interval=10s --retries=24 CMD mc-health
+HEALTHCHECK --start-period=3m --interval=12s --retries=24 CMD mc-health

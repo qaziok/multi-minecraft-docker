@@ -3,6 +3,10 @@
 players_sum=0
 
 cancel_shutdown(){
+    if [ ! -f /run/systemd/shutdown/scheduled ]; then
+        echo "Shutdown is not scheduled"
+        exit 0
+    fi
     echo "Cancelling current shutdown"
     sudo shutdown -c
 }
@@ -16,6 +20,7 @@ trap 'cancel_shutdown' ERR
 
 for containerId in $(sudo docker ps -aqf "name=mc-1")
     do
+        echo "Checking container $containerId"
         online_players=$(sudo docker exec $containerId ./health.sh | grep -oP 'online=\K\d+')
         players_sum=$((players_sum+online_players))
     done

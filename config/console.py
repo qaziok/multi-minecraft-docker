@@ -29,6 +29,12 @@ def get_container(client):
 
     containers = [c for c in client.containers.list() if c.name.endswith("mc-1")]
 
+    if len(containers) == 0:
+        print("No containers found.")
+        return None
+    elif len(containers) == 1:
+        return containers[0]
+
     for i, c in enumerate(containers):
         print(f"{i+1}. {c.name}")
 
@@ -96,7 +102,10 @@ def main(stdscr, que, container):
             case None: # No input
                 pass
             case _: # Other
-                input_text += key
+                try:
+                    input_text += key
+                except TypeError:
+                    pass
 
         re_match = r'\x1B(?:[@-Z\\-_]|\[[0-?]*[ -/]*[@-~])'
         while re.search(re_match, input_text):
